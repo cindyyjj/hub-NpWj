@@ -6,16 +6,14 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
-# ==========1 加载本地人民日报数据集【修正文件名：validation.json】=========
+# ==========1 加载本地人民日报数据集=========
 with open("train.json", "r", encoding="utf-8") as f:
     train_data = json.load(f)
-# 重点：你本地是validation.json，不是val.json
 with open("validation.json", "r", encoding="utf-8") as f:
     val_data = json.load(f)
 with open("label_names.json", "r", encoding="utf-8") as f:
     label_list = json.load(f)
 
-# 修正打印：原本错写len(label_list) → len(val_data)
 print(f"训练集条数：{len(train_data)}，验证集条数：{len(val_data)}")
 print("全部标签：", label_list)
 
